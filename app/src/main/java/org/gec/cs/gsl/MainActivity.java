@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
   private CoordinatorTabLayout mCoordinatorTabLayout;
   private int[] mImageArray, mColorArray;
   private ArrayList<Fragment> mragments;
-  private final String[] mTitles = {"Android", "iOS", "前端", "拓展资源"};
+  private final String[] mTitles = {"Fixture", "Result", "Standings", "Top Scorer"};
   private ViewPager mViewPager;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -68,7 +68,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
-  }
 
   private void initFragments() {
     mragments = new ArrayList<>();
