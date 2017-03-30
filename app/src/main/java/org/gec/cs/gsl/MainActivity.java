@@ -34,16 +34,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     initFragments();
     initViewPager();
 
-    mImageArray = new int[]{
-        R.mipmap.bg_android,
-        R.mipmap.bg_ios,
-        R.mipmap.bg_js,
-        R.mipmap.bg_other};
-    mColorArray = new int[]{
-        android.R.color.holo_blue_light,
-        android.R.color.holo_red_light,
-        android.R.color.holo_orange_light,
-        android.R.color.holo_green_light};
+    mImageArray = new int[] {
+        R.mipmap.bg_android, R.mipmap.bg_ios, R.mipmap.bg_js, R.mipmap.bg_other
+    };
+    mColorArray = new int[] {
+        android.R.color.holo_blue_light, android.R.color.holo_red_light,
+        android.R.color.holo_orange_light, android.R.color.holo_green_light
+    };
 
     mCoordinatorTabLayout = (CoordinatorTabLayout) findViewById(R.id.coordinatortablayout);
     mCoordinatorTabLayout.setTitle("Demo")
@@ -68,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+  }
 
   private void initFragments() {
     mragments = new ArrayList<>();
