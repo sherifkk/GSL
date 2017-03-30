@@ -2,8 +2,6 @@ package org.gec.cs.gsl;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -23,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
   private CoordinatorTabLayout mCoordinatorTabLayout;
   private int[] mImageArray, mColorArray;
-  private ArrayList<Fragment> mFragments;
+  private ArrayList<Fragment> mragments;
   private final String[] mTitles = {"Android", "iOS", "前端", "拓展资源"};
   private ViewPager mViewPager;
 
@@ -53,6 +51,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
     navigationView.setNavigationItemSelectedListener(this);
+  }
+
+  private void initFragments() {
+    mragments = new ArrayList<>();
+    for (String title : mTitles) {
+      mragments.add(MainFragment.getInstance(title));
+    }
+  }
+
+  private void initViewPager() {
+    mViewPager = (ViewPager) findViewById(R.id.vp);
+    mViewPager.setOffscreenPageLimit(4);
+    mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), mragments, mTitles));
   }
 
   @Override public void onBackPressed() {
