@@ -34,6 +34,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     initFragments();
     initViewPager();
 
+    mImageArray = new int[]{
+        R.mipmap.bg_android,
+        R.mipmap.bg_ios,
+        R.mipmap.bg_js,
+        R.mipmap.bg_other};
+    mColorArray = new int[]{
+        android.R.color.holo_blue_light,
+        android.R.color.holo_red_light,
+        android.R.color.holo_orange_light,
+        android.R.color.holo_green_light};
+
+    mCoordinatorTabLayout = (CoordinatorTabLayout) findViewById(R.id.coordinatortablayout);
+    mCoordinatorTabLayout.setTitle("Demo")
+        .setBackEnable(true)
+        .setImageArray(mImageArray, mColorArray)
+        .setupWithViewPager(mViewPager);
+
     FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
     fab.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
