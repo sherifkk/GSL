@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             .show();
       }
     });
-    TextView tv;
+
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle =
