@@ -2,6 +2,8 @@ package org.gec.cs.gsl;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
+import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -61,20 +63,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
       super.onBackPressed();
     }
   }
-
-  private void initFragments() {
-    mFragments = new ArrayList<>();
-    for (String title : mTitles) {
-      mFragments.add(MainFragment.getInstance(title));
-    }
-  }
-
-  private void initViewPager() {
-    mViewPager = (ViewPager) findViewById(R.id.vp);
-    mViewPager.setOffscreenPageLimit(4);
-    mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), mFragments, mTitles));
-  }
-
 
   @Override public boolean onCreateOptionsMenu(Menu menu) {
     // Inflate the menu; this adds items to the action bar if it is present.
