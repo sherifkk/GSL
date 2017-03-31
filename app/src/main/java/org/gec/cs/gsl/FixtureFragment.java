@@ -11,16 +11,16 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainFragment extends Fragment {
+public class FixtureFragment extends Fragment {
   private RecyclerView mRecyclerView;
-  private RecyclerAdapter mAdapter;
+  private FixtureRecyclerAdapter mAdapter;
 
-  private List<String> mDatas;
+  private List<String> mMatches,mDate,mNo;
   private static final String ARG_TITLE = "title";
   private String mTitle;
 
-  public static MainFragment getInstance(String title) {
-    MainFragment fra = new MainFragment();
+  public static FixtureFragment getInstance(String title) {
+    FixtureFragment fra = new FixtureFragment();
     Bundle bundle = new Bundle();
     bundle.putString(ARG_TITLE, title);
     fra.setArguments(bundle);
@@ -42,17 +42,20 @@ public class MainFragment extends Fragment {
 
     mRecyclerView = (RecyclerView) v.findViewById(R.id.recyclervalue);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-    mRecyclerView.setAdapter(mAdapter = new RecyclerAdapter(mRecyclerView.getContext(), mDatas));
+    mRecyclerView.setAdapter(mAdapter = new FixtureRecyclerAdapter(mRecyclerView.getContext(),mMatches,mDate,mNo));
 
     return v;
   }
 
   protected void initData() {
-    mDatas = new ArrayList<>();
-    for (int i = 0; i < 26; i++) {
-      mDatas.add(mTitle + (char) i);
-
-    }
+      mMatches = new ArrayList<>();
+      mDate = new ArrayList<>();
+      mNo = new ArrayList<>();
+      for(int i=0;i<3;i++){
+        mMatches.add("GEC Blasters vs FC Pwolians");
+        mDate.add("Monday, Aug 17, 5:40 pm");
+        mNo.add("Match "+Integer.toString(i+1));
+      }
   }
 
 }

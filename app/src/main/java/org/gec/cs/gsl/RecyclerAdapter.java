@@ -1,6 +1,7 @@
 package org.gec.cs.gsl;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,6 +29,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
   @Override
   public void onBindViewHolder(MyViewHolder holder, int position) {
     holder.tv.setText(mDatas.get(position));
+    if(position%2==1)
+      holder.v.setBackgroundColor(Color.parseColor("#FF4081"));
   }
 
   @Override
@@ -37,10 +40,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
   class MyViewHolder extends RecyclerView.ViewHolder {
     TextView tv;
+    View v;
 
     public MyViewHolder(View view) {
       super(view);
-      tv = (TextView) view.findViewById(R.id.tv_num);
+      tv = (TextView) view.findViewById(R.id.Date);
+      v =  view.findViewById(R.id.stroke);
     }
   }
 }
