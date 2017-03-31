@@ -15,7 +15,7 @@ public class StandingsFragment extends Fragment {
   private RecyclerView mRecyclerView;
   private StandingsRecyclerAdapter mAdapter;
 
-  private List<String> mteams,mPlayed,mWon,mDraw,mLost,mGd,mPoint;
+  private List<String> mteams,mWon,mDraw,mLost,mGF,mGA,mGd,mPoint;
   private static final String ARG_TITLE = "title";
   private String mTitle;
 
@@ -42,27 +42,29 @@ public class StandingsFragment extends Fragment {
 
     mRecyclerView = (RecyclerView) v.findViewById(R.id.recyclervalue);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-    mRecyclerView.setAdapter(mAdapter = new StandingsRecyclerAdapter(mRecyclerView.getContext(),mteams,mPlayed,mWon,mDraw,mLost,mGd,mPoint));
+    mRecyclerView.setAdapter(mAdapter = new StandingsRecyclerAdapter(mRecyclerView.getContext(),mteams,mWon,mDraw,mLost,mGF,mGA,mGd,mPoint));
 
     return v;
   }
 
   protected void initData() {
       mteams = new ArrayList<>();
-      mPlayed = new ArrayList<>();
       mWon = new ArrayList<>();
       mDraw= new ArrayList<>();
       mLost = new ArrayList<>();
+      mGF = new ArrayList<>();
+      mGA = new ArrayList<>();
       mGd = new ArrayList<>();
       mPoint = new ArrayList<>();
       for(int i=0;i<3;i++){
         mteams.add("GEC Blasters");
-        mPlayed.add("3");
-        mWon.add("1");
-        mDraw.add("1");
-        mLost.add("1");
-        mGd.add("+1");
-        mPoint.add("4");
+        mWon.add("Won: 1");
+        mDraw.add("Draw: 1");
+        mLost.add("Lost: 1");
+        mGF.add("GF: 2");
+        mGA.add("GA: 1");
+        mGd.add("GD: +1");
+        mPoint.add("Points 4");
       }
   }
 
