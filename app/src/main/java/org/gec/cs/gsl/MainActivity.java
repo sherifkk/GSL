@@ -72,9 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
   private void initFragments() {
     fragments = new ArrayList<>();
     fragments.add(FixtureFragment.getInstance(mTitles[0]));
-    fragments.add(MainFragment.getInstance(mTitles[1]));
+    fragments.add(ResultFragment.getInstance(mTitles[1]));
     fragments.add(MainFragment.getInstance(mTitles[2]));
-    fragments.add(MainFragment.getInstance(mTitles[3]));
+    fragments.add(ScorerFragment.getInstance(mTitles[3]));
   }
 
   private void initViewPager() {
