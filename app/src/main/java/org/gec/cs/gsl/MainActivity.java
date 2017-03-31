@@ -21,8 +21,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
   private CoordinatorTabLayout mCoordinatorTabLayout;
   private int[] mImageArray, mColorArray;
-  private ArrayList<Fragment> mragments;
-  private final String[] mTitles = {"Fixture", "Result", "Standings", "Top Scorer"};
+  private ArrayList<Fragment> fragments;
+  private final String[] mTitles = { "Fixture", "Result", "Standings", "Top Scorer"};
   private ViewPager mViewPager;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -34,16 +34,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     initFragments();
     initViewPager();
 
-    mImageArray = new int[] {
-        R.mipmap.bg_android, R.mipmap.bg_ios, R.mipmap.bg_js, R.mipmap.bg_other
-    };
-    mColorArray = new int[] {
-        android.R.color.holo_blue_light, android.R.color.holo_red_light,
-        android.R.color.holo_orange_light, android.R.color.holo_green_light
-    };
+    mImageArray = new int[]{
+        R.mipmap.bg_android,
+        R.mipmap.bg_ios,
+        R.mipmap.bg_js,
+        R.mipmap.bg_other};
+    mColorArray = new int[]{
+        android.R.color.holo_blue_light,
+        android.R.color.holo_red_light,
+        android.R.color.holo_orange_light,
+        android.R.color.holo_green_light};
 
     mCoordinatorTabLayout = (CoordinatorTabLayout) findViewById(R.id.coordinatortablayout);
-    mCoordinatorTabLayout.setTitle("Demo")
+    mCoordinatorTabLayout.setTitle("GSL")
         .setBackEnable(true)
         .setImageArray(mImageArray, mColorArray)
         .setupWithViewPager(mViewPager);
@@ -64,20 +67,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     toggle.syncState();
 
     NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-    navigationView.setNavigationItemSelectedListener(this);
-  }
+    navigationView.setNavigationItemSelectedListener(this);}
 
   private void initFragments() {
-    mragments = new ArrayList<>();
-    for (String title : mTitles) {
-      mragments.add(MainFragment.getInstance(title));
-    }
+    fragments = new ArrayList<>();
+    fragments.add(FixtureFragment.getInstance(mTitles[0]));
+    fragments.add(MainFragment.getInstance(mTitles[1]));
+    fragments.add(MainFragment.getInstance(mTitles[2]));
+    fragments.add(MainFragment.getInstance(mTitles[3]));
   }
 
   private void initViewPager() {
     mViewPager = (ViewPager) findViewById(R.id.vp);
     mViewPager.setOffscreenPageLimit(4);
-    mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), mragments, mTitles));
+    mViewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager(), fragments, mTitles));
   }
 
   @Override public void onBackPressed() {
