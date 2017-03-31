@@ -55,6 +55,7 @@ public class FixtureFragment extends Fragment {
         mMatches.add("GEC Blasters vs FC Pwolians");
         mDate.add("Monday, Aug 17, 5:40 pm");
         mNo.add("Match "+Integer.toString(i+1));
+
       }
   }
 
