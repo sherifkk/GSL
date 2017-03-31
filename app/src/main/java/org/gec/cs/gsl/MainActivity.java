@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
   private CoordinatorTabLayout mCoordinatorTabLayout;
   private int[] mImageArray, mColorArray;
   private ArrayList<Fragment> fragments;
-  private final String[] mTitles = { "Fixture", "Result", "Standings", "Top Scorer"};
+  private final String[] mTitles = { "Fixture", "Result", "Standings", "Scorers"};
   private ViewPager mViewPager;
 
   @Override protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     fragments = new ArrayList<>();
     fragments.add(FixtureFragment.getInstance(mTitles[0]));
     fragments.add(ResultFragment.getInstance(mTitles[1]));
-    fragments.add(MainFragment.getInstance(mTitles[2]));
+    fragments.add(StandingsFragment.getInstance(mTitles[2]));
     fragments.add(ScorerFragment.getInstance(mTitles[3]));
   }
 
