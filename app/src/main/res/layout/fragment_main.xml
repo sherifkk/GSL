@@ -1,7 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
+  <com.tomer.fadingtextview.FadingTextView
+      android:id="@+id/textView"
+      android:visibility="gone"
+      android:layout_marginTop="15dp"
+      android:textAlignment="center"
+      app:timeout="350"
+      android:textColor="#000000"
+      android:textStyle="bold"
+      android:layout_gravity="center"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      app:texts="@array/examples" />
+
+  <com.wang.avi.AVLoadingIndicatorView
+      android:id="@+id/loading"
+      app:indicatorColor="#000000"
+      android:layout_gravity="center"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      app:indicatorName="BallPulseIndicator"
+      />
+
   <android.support.v7.widget.RecyclerView
       android:layout_height="match_parent"
       android:layout_width="match_parent"

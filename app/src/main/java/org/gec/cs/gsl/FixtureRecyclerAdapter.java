@@ -9,20 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.util.List;
 
 public class FixtureRecyclerAdapter extends RecyclerView.Adapter<FixtureRecyclerAdapter.MyViewHolder> {
   private Context mContext;
-  private List<String> mMatches,mDate,mNos;
+  private List<String> mPlayer,mPos;
   private Context context;
 
-  public FixtureRecyclerAdapter(Context context, List<String> matches, List<String> date, List<String> no) {
+
+
+  public FixtureRecyclerAdapter(Context context, List<String> player, List<String> pos) {
     mContext = context;
-    mMatches = matches;
-    mDate = date;
-    mNos = no;
+    mPlayer = player;
+    mPos = pos;
   }
 
   @Override
@@ -36,36 +36,25 @@ public class FixtureRecyclerAdapter extends RecyclerView.Adapter<FixtureRecycler
   public void onBindViewHolder(MyViewHolder holder, final int position) {
     if(position%2==1)
       holder.views.setBackgroundColor(Color.parseColor("#FF4081"));
-    holder.match.setText(mMatches.get(position));
-    holder.date.setText(mDate.get(position));
-    holder.mNo.setText(mNos.get(position));
-    holder.root.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        final Intent intent =  new Intent(context, FixtureActivity.class);
-        context.startActivity(intent);
-      }
-    });
+    holder.player.setText(mPlayer.get(position));
+    holder.pos.setText(mPos.get(position));
   }
 
   @Override
   public int getItemCount() {
-    return mMatches.size();
+    return mPlayer.size();
   }
 
   class MyViewHolder extends RecyclerView.ViewHolder {
-    LinearLayout root;
     View views;
-    TextView match,date,mNo;
+    TextView player,pos;
 
     public MyViewHolder(View view) {
       super(view);
       context = itemView.getContext();
-      root = (LinearLayout) view.findViewById(R.id.rootView);
       views =  view.findViewById(R.id.stroke);
-      match = (TextView) view.findViewById(R.id.textMatch);
-      date = (TextView) view.findViewById(R.id.textDate);
-      mNo = (TextView) view.findViewById(R.id.textMno);
+      player = (TextView) view.findViewById(R.id.textPlayer);
+      pos = (TextView) view.findViewById(R.id.textPos);
     }
   }
 }

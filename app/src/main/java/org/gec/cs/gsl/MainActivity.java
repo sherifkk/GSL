@@ -1,9 +1,8 @@
 package org.gec.cs.gsl;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.ViewPager;
@@ -13,14 +12,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
 import java.util.ArrayList;
+import cn.hugeterry.coordinatortablayout.CoordinatorTabLayout;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
-  private CoordinatorTabLayout mCoordinatorTabLayout;
-  private int[] mImageArray, mColorArray;
   private ArrayList<Fragment> fragments;
   private final String[] mTitles = { "Fixture", "Result", "Standings", "Scorers"};
   private ViewPager mViewPager;
@@ -34,31 +30,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     initFragments();
     initViewPager();
 
-    mImageArray = new int[]{
-        R.mipmap.bg_android,
-        R.mipmap.bg_ios,
-        R.mipmap.bg_js,
-        R.mipmap.bg_other};
-    mColorArray = new int[]{
-        android.R.color.holo_blue_light,
-        android.R.color.holo_red_light,
-        android.R.color.holo_orange_light,
-        android.R.color.holo_green_light};
+    int[] mImageArray = new int[]{
+            R.drawable.img5,
+            R.drawable.img4,
+            R.drawable.img7,
+            R.drawable.img1};
+    int[] mColorArray = new int[]{
+            android.R.color.holo_blue_light,
+            android.R.color.holo_red_light,
+            android.R.color.holo_orange_light,
+            android.R.color.holo_green_light};
 
-    mCoordinatorTabLayout = (CoordinatorTabLayout) findViewById(R.id.coordinatortablayout);
+    CoordinatorTabLayout mCoordinatorTabLayout = (CoordinatorTabLayout) findViewById(R.id.coordinatortablayout);
     mCoordinatorTabLayout.setTitle("GSL")
         .setBackEnable(true)
         .setImageArray(mImageArray, mColorArray)
         .setupWithViewPager(mViewPager);
-
-    FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-    fab.setOnClickListener(new View.OnClickListener() {
-      @Override public void onClick(View view) {
-        Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-            .setAction("Action", null)
-            .show();
-      }
-    });
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
     ActionBarDrawerToggle toggle =
@@ -71,8 +58,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
   private void initFragments() {
     fragments = new ArrayList<>();
-    fragments.add(FixtureFragment.getInstance(mTitles[0]));
-    fragments.add(ResultFragment.getInstance(mTitles[1]));
+    fragments.add(FixturesFragment.getInstance(mTitles[0]));
+    fragments.add(ResultsFragment.getInstance(mTitles[1]));
     fragments.add(StandingsFragment.getInstance(mTitles[2]));
     fragments.add(ScorerFragment.getInstance(mTitles[3]));
   }
@@ -105,8 +92,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     int id = item.getItemId();
 
     //noinspection SimplifiableIfStatement
-    if (id == R.id.action_settings) {
-      return true;
+    if (id == R.id.action_developers) {
+      startActivity(new Intent(MainActivity.this,AboutActivity.class));
     }
 
     return super.onOptionsItemSelected(item);
@@ -116,18 +103,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     // Handle navigation view item clicks here.
     int id = item.getItemId();
 
-    if (id == R.id.nav_camera) {
-      // Handle the camera action
-    } else if (id == R.id.nav_gallery) {
-
-    } else if (id == R.id.nav_slideshow) {
-
-    } else if (id == R.id.nav_manage) {
-
-    } else if (id == R.id.nav_share) {
-
-    } else if (id == R.id.nav_send) {
-
+    if (id == R.id.nav_fixture) {
+      mViewPager.setCurrentItem(0);
+    } else if (id == R.id.nav_result) {
+      mViewPager.setCurrentItem(1);
+    } else if (id == R.id.nav_standings) {
+      mViewPager.setCurrentItem(2);
+    } else if (id == R.id.nav_scorers) {
+      mViewPager.setCurrentItem(3);
+    }
+    else if (id == R.id.nav_about) {
+      startActivity(new Intent(MainActivity.this,AboutActivity.class));
     }
 
     DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

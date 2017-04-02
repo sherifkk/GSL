@@ -5,4 +5,17 @@
   <string name="navigation_drawer_close">Close navigation drawer</string>
 
   <string name="action_settings">Settings</string>
+
+  <string-array name="examples">
+    <item>Network Error</item>
+    <item>"Tap to Try Again…!"</item>
+  </string-array>
+    <string name="title_activity_main2">Main2Activity</string>
+  <string name="nav_fixture">Fixture</string>
+  <string name="nav_result">Result</string>
+  <string name="nav_standings">Standings</string>
+  <string name="nav_scorers">Scorers</string>
+  <string name="help">Help</string>
+  <string name="developers">Developers</string>
+
 </resources>

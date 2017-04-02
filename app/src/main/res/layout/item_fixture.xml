@@ -5,96 +5,86 @@
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-  <View
-      android:id="@+id/stroke"
-      android:layout_width="5dp"
-      android:layout_height="match_parent"
-      android:background="@color/colorPrimary"
-      ></View>
-
-  <RelativeLayout
-      android:layout_width="match_parent"
-      android:layout_height="wrap_content"
-      android:layout_marginTop="10dp">
-
-    <!--<org.gec.cs.gsl.TextView_Lato-->
-
-
-    <TextView
-        android:id="@+id/textMatch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:text="GEC Blasters vs GEC Blasters"
-        android:textColor="@color/colorGray"
-        android:textSize="14dp"
-        android:textStyle="bold" />
+    <View
+        android:id="@+id/stroke"
+        android:layout_width="5dp"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        ></View>
 
     <LinearLayout
-        android:id="@+id/linear"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textMatch"
-        android:layout_marginTop="3dp"
-        android:orientation="vertical">
+        android:layout_gravity="center_vertical"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
 
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="0dp"
+            android:layout_height="55dp"
+            android:layout_weight="1"
+            android:src="@drawable/player"
+            app:civ_border_color="@color/colorBackroundWhite"
+            app:civ_border_width="2dp" />
 
-      <LinearLayout
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="20dp"
-          android:layout_marginTop="5dp">
-          <ImageView
-              android:layout_width="14dp"
-              android:layout_height="14dp"
-              android:src="@drawable/cal"
-              />
-      <!--<org.gec.cs.gsl.Textview_lato_thin-->
-      <TextView
-          android:id="@+id/textDate"
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="2dp"
-          android:text="Monday, Aug 17, 5:40 pm"
-          android:textColor="@color/colorLightGray"
-          android:textSize="12dp"
-          android:textStyle="bold" />
-          </LinearLayout>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginLeft="20dp"
-    android:layout_marginTop="5dp">
-      <ImageView
-          android:layout_width="14dp"
-          android:layout_height="14dp"
-          android:src="@drawable/placeholder"
-          />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.8"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingLeft="10dp">
 
-      <!--<org.gec.cs.gsl.Textview_lato_thin-->
-      <TextView
-          android:layout_width="wrap_content"
-          android:layout_height="wrap_content"
-          android:layout_marginLeft="2dp"
-          android:text="Hockey Ground, GEC"
-          android:textColor="@color/colorLightGray"
-          android:textSize="12dp"
-          android:textStyle="bold" />
+            <TextView
+                android:id="@+id/textPlayer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Salih Muhammed"
+                android:textColor="@color/colorGray"
+                android:textSize="15dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textPos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="Forward"
+                android:textColor="@color/colorLightGray"
+                android:textSize="14dp" />
+        </LinearLayout>
+        <!--<LinearLayout-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1.2"-->
+            <!--android:gravity="center">-->
+
+            <!--<ImageView-->
+                <!--android:layout_width="14dp"-->
+                <!--android:layout_height="14dp"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:src="@drawable/goal"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="14dp"-->
+                <!--android:layout_height="14dp"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:src="@drawable/goal"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="14dp"-->
+                <!--android:layout_height="14dp"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:src="@drawable/goal"-->
+                <!--/>-->
+            <!--<ImageView-->
+                <!--android:layout_width="14dp"-->
+                <!--android:layout_height="14dp"-->
+                <!--android:layout_margin="5dp"-->
+                <!--android:src="@drawable/sub"-->
+                <!--/>-->
+        <!--</LinearLayout>-->
     </LinearLayout>
-
-        <TextView
-            android:id="@+id/textMno"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/roun_rect_lightgray"
-            android:gravity="center"
-            android:text="Match 1"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorGray"
-            android:textSize="10sp"
-            android:textStyle="bold" />
-    </LinearLayout>
-  </RelativeLayout>
 </LinearLayout>
