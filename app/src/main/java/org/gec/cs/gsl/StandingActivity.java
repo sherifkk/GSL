@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public class StandingActivity extends AppCompatActivity  {
   private ViewPager mViewPager;
   private TextView mTeam,mPos,mText[];
   private String team,pos;
-
+    private final int[] img= {R.drawable.team1,R.drawable.team2,R.drawable.team3,R.drawable.team4,R.drawable.team5,R.drawable.team6,R.drawable.team7,R.drawable.team8};
+    private ImageView one;
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_standing);
@@ -49,7 +51,8 @@ public class StandingActivity extends AppCompatActivity  {
       mPos = (TextView) findViewById(R.id.textPos);
       mText[0] = (TextView) findViewById(R.id.textView1);
       mText[1] = (TextView) findViewById(R.id.textView2);
-
+        one=(ImageView)findViewById(R.id.profile_image1) ;
+      one.setImageResource(img[Integer.parseInt(mTitles[0])-1]);
       mTeam.setText(team);
       mPos.setText(pos);
 

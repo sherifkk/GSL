@@ -26,7 +26,7 @@ public class ScorerFragment extends Fragment {
   private ScorerRecyclerAdapter mAdapter;
   private AVLoadingIndicatorView avLoadingIndicatorView;
   private FadingTextView fadingTextView;
-  private List<String> mPlayer,mTeam,mNo;
+  private List<String> mPlayer,mTeam,mNo,mTno;
   private static final String ARG_TITLE = "title";
   private String mTitle;
 
@@ -72,6 +72,7 @@ public class ScorerFragment extends Fragment {
       mPlayer = new ArrayList<>();
       mTeam = new ArrayList<>();
       mNo = new ArrayList<>();
+      mTno = new ArrayList<>();
 
     String URL = "http://gsl-gec.esy.es/gsl/scorers.php";
 
@@ -85,15 +86,18 @@ public class ScorerFragment extends Fragment {
               mPlayer.clear();
               mTeam.clear();
               mNo.clear();
+            mTno.clear();
+
             for (int i = 0; i < jsonArray.length(); i++) {
               jsonObject = (JSONObject) jsonArray.get(i);
               mPlayer.add(jsonObject.getString("name"));
               mTeam.add(jsonObject.getString("team"));
               mNo.add(jsonObject.getString("goal"));
+              mTno.add(jsonObject.getString("tno"));
             }
             avLoadingIndicatorView.hide();
             mRecyclerView.setLayoutManager(new LinearLayoutManager(mRecyclerView.getContext()));
-            mRecyclerView.setAdapter(mAdapter = new ScorerRecyclerAdapter(mRecyclerView.getContext(),mPlayer,mTeam,mNo));
+            mRecyclerView.setAdapter(mAdapter = new ScorerRecyclerAdapter(mRecyclerView.getContext(),mPlayer,mTeam,mNo,mTno));
           }
         } catch (JSONException e) {
           e.printStackTrace();
