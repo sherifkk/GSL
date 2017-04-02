@@ -1,9 +1,6 @@
 package org.gec.cs.gsl;
 
 import android.content.Intent;
-import android.provider.SyncStateContract;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.viksaa.sssplash.lib.activity.AwesomeSplash;
@@ -39,7 +36,7 @@ public class SplashActivity extends AwesomeSplash {
         configSplash.setTitleSplash("Developers: Sherif,Salih,Shamli");
         configSplash.setTitleTextColor(R.color.colorBackroundWhite);
         configSplash.setTitleTextSize(10f); //float value
-        configSplash.setAnimTitleDuration(3000);
+        configSplash.setAnimTitleDuration(2000);
         configSplash.setAnimTitleTechnique(Techniques.FlipInX);
          //provide string to your font located in assets/fonts/
 

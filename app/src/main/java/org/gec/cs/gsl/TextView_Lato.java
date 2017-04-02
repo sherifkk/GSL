@@ -3,7 +3,6 @@ package org.gec.cs.gsl;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
-import android.widget.TextView;
 
 
 public class TextView_Lato extends android.support.v7.widget.AppCompatTextView {
