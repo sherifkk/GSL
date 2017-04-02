@@ -29,8 +29,10 @@ public class FixtureActivity extends AppCompatActivity  {
   private ViewPager mViewPager;
   private TextView mMatch,mDate,mText[];
   private String mno,match,date,team1,team2;
+    private final int[] img= {R.drawable.team1,R.drawable.team2,R.drawable.team3,R.drawable.team4,R.drawable.team5,R.drawable.team6,R.drawable.team7,R.drawable.team8};
 
-  @Override protected void onCreate(Bundle savedInstanceState) {
+
+    @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_fixture);
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
