@@ -17,10 +17,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import static org.gec.cs.gsl.R.id.profile_image;
+import static org.gec.cs.gsl.R.id.profile_image1;
 
 public class FixtureActivity extends AppCompatActivity  {
 
@@ -29,6 +33,8 @@ public class FixtureActivity extends AppCompatActivity  {
   private ViewPager mViewPager;
   private TextView mMatch,mDate,mText[];
   private String mno,match,date,team1,team2;
+    //salih
+    private ImageView one,two;
     private final int[] img= {R.drawable.team1,R.drawable.team2,R.drawable.team3,R.drawable.team4,R.drawable.team5,R.drawable.team6,R.drawable.team7,R.drawable.team8};
 
 
@@ -63,6 +69,10 @@ public class FixtureActivity extends AppCompatActivity  {
 
 
 
+        one=(ImageView)findViewById(profile_image1);
+        one.setImageResource(img[Integer.parseInt(mTitles[0])-1]);
+        two=(ImageView)findViewById(profile_image);
+        two.setImageResource(img[Integer.parseInt(mTitles[1])-1]);
       mMatch.setText(match);
       mDate.setText(date);
       mText[0].setText(team1);
